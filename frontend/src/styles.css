@@ -1,0 +1,376 @@
+:root {
+  --bg: #121212;
+  --surface: #1e1e1e;
+  --surface-hover: #2a2a2a;
+  --primary: #1db954;
+  --primary-hover: #1ed760;
+  --text: #ffffff;
+  --text-secondary: #b3b3b3;
+  --text-dim: #6a6a6a;
+  --border: #333;
+  --danger: #e74c3c;
+  --warning: #f39c12;
+  --radius: 8px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+/* Layout */
+.app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.header h1 {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.header-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+/* Auth */
+.auth-screen {
+  text-align: center;
+  padding: 120px 24px;
+}
+
+.auth-screen h1 {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.auth-screen p {
+  color: var(--text-secondary);
+  margin-bottom: 32px;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--primary-hover);
+}
+
+.btn-secondary {
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.btn-secondary:hover {
+  background: var(--surface-hover);
+}
+
+.btn-small {
+  padding: 4px 10px;
+  font-size: 12px;
+}
+
+.btn-danger {
+  background: var(--danger);
+  color: #fff;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Stats bar */
+.stats-bar {
+  display: flex;
+  gap: 24px;
+  padding: 12px 16px;
+  background: var(--surface);
+  border-radius: var(--radius);
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.stats-bar span strong {
+  color: var(--text);
+}
+
+/* Track list */
+.track-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* Track row */
+.track-row {
+  background: var(--surface);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: background 0.15s;
+}
+
+.track-row.processed {
+  opacity: 0.5;
+}
+
+.track-summary {
+  display: grid;
+  grid-template-columns: 48px 1fr 140px 100px 100px;
+  align-items: center;
+  padding: 12px 16px;
+  gap: 16px;
+  cursor: pointer;
+}
+
+.track-summary:hover {
+  background: var(--surface-hover);
+}
+
+.track-number {
+  color: var(--text-dim);
+  font-size: 14px;
+  text-align: center;
+}
+
+.track-info h3 {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.track-info p {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.track-duration {
+  color: var(--text-secondary);
+  font-size: 13px;
+  text-align: right;
+}
+
+.track-album {
+  color: var(--text-dim);
+  font-size: 13px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.track-status {
+  text-align: right;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.track-status.added {
+  color: var(--primary);
+}
+
+/* Expanded match panel */
+.match-panel {
+  padding: 16px;
+  border-top: 1px solid var(--border);
+  background: #161616;
+}
+
+.match-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.match-panel-header h4 {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+/* Local player */
+.local-player {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  background: var(--surface);
+  border-radius: var(--radius);
+  margin-bottom: 12px;
+}
+
+.local-player span {
+  font-size: 13px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.local-player audio {
+  flex: 1;
+  height: 32px;
+}
+
+/* Match cards */
+.match-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.match-card {
+  display: grid;
+  grid-template-columns: 56px 1fr auto;
+  gap: 12px;
+  align-items: center;
+  padding: 10px 14px;
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.match-card:hover {
+  background: var(--surface-hover);
+  border-color: var(--border);
+}
+
+.match-card.selected {
+  border-color: var(--primary);
+}
+
+.match-card img {
+  width: 56px;
+  height: 56px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.match-info h4 {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.match-info p {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.match-info .duration-warning {
+  color: var(--warning);
+  font-size: 11px;
+}
+
+.match-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+.match-actions audio {
+  width: 200px;
+  height: 28px;
+}
+
+/* Playlist picker */
+.playlist-picker {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+
+.playlist-picker select {
+  flex: 1;
+  padding: 8px;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 13px;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 20px;
+  padding: 16px;
+}
+
+.pagination span {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+/* Loading */
+.loading {
+  text-align: center;
+  padding: 24px;
+  color: var(--text-secondary);
+}
+
+.spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--border);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* No matches message */
+.no-matches {
+  padding: 16px;
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 13px;
+}
